@@ -34,6 +34,10 @@ define("LABEL_MAX_NAME_LENGTH", 50);
  * @return string
  */
 function get_label_name($label) {
+    // Return label name if not empty.
+    if ($label->name) {
+        return $label->name;
+    }
     $name = html_to_text(format_string($label->intro, true));
     $name = preg_replace('/@@PLUGINFILE@@\/[[:^space:]]+/i', '', $name);
     // Remove double space and also nbsp; characters.
